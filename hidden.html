@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Page for Griselda</title>
+    <style>
+        /* CSS for Hidden Page */
+
+        :root {
+            --color-dark-green: #051d05;
+            --color-light-green: #d4e157;
+            --color-rust-red: #b33015;
+            --color-footer-background: #b33015;
+            --spacing-unit: 16px;
+            --border-radius: 10px;
+            --font-family: 'Cormorant Garamond', serif;
+            --text-shadow: 0 0 1px var(--color-light-green), 0 0 3px var(--color-light-green), 0 0 5px var(--color-light-green);
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-dark-green);
+            color: var(--color-light-green);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--color-rust-red);
+            padding: var(--spacing-unit);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: var(--spacing-unit);
+        }
+
+        nav ul li a {
+            color: var(--color-light-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Main Section */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 160px); /* Adjust for header and footer */
+        }
+
+        .main-container {
+            background-color: var(--color-dark-green);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .glowing-text {
+            color: var(--color-light-green);
+            text-shadow: var(--text-shadow);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-footer-background);
+            padding: var(--spacing-unit);
+            text-align: center;
+            margin: 0;
+        }
+
+        .footer-box {
+            height: 50px;
+            background-color: var(--color-footer-background);
+            border-radius: var(--border-radius);
+        }
+
+        /* Mobile First Design */
+        @media (min-width: 768px) {
+            nav ul {
+                gap: calc(var(--spacing-unit) * 2);
+            }
+
+            .footer-box {
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Current</a></li>
+            <li><a href="past.html">The Past</a></li>
+            <li><a href="future.html">Future</a></li>
+            <li><a href="hidden.html">Hidden Page</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Section - Placeholder for a message -->
+    <main>
+        <div class="main-container">
+            <!-- Empty at the start, to be filled with JavaScript typing effect -->
+            <h2 class="glowing-text" style="display: none;">This is your special place, Griselda.</h2>
+            <p class="glowing-text" style="display: none;">You are incredible, and this journey is just beginning. I can't wait to spend forever with you.</p>
+        </div>
+    </main>
+
+    <!-- Footer with Interactive Box -->
+    <footer>
+        <div id="footer-box" class="footer-box"></div>
+    </footer>
+
+    <script>
+        // JavaScript for Typing Effect on Hidden Page
+        document.addEventListener('DOMContentLoaded', () => {
+            typeText();
+        });
+
+        function typeText() {
+            const elements = document.querySelectorAll('.glowing-text');
+            let currentElementIndex = 0;
+            let index = 0;
+
+            // Hide all elements initially
+            elements.forEach(element => {
+                element.style.display = 'none';
+                element.setAttribute('data-original-text', element.innerText);
+                element.textContent = ''; // Clear the text to avoid duplication
+            });
+
+            // Start typing effect for the first element
+            function type() {
+                if (currentElementIndex < elements.length) {
+                    const currentElement = elements[currentElementIndex];
+                    const currentText = currentElement.getAttribute('data-original-text');
+                    currentElement.style.display = 'block';
+
+                    if (index < currentText.length) {
+                        currentElement.textContent += currentText.charAt(index);
+                        index++;
+                        setTimeout(type, 50); // Adjust typing speed here for a slower effect
+                    } else {
+                        // Move to the next element if it exists
+                        currentElementIndex++;
+                        index = 0;
+                        setTimeout(type, 50); // Pause before typing the next element
+                    }
+                }
+            }
+            type();
+        }
+    </script>
+</body>
+</html>

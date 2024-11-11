@@ -1,0 +1,210 @@
+/* Define CSS Variables for Easy Updates */
+:root {
+    --color-background: #3d4733; /* Sandy light color */
+    --color-main:#428d5a;
+    --color-text: whitesmoke; /* Warm brown for text */
+    --color-text-light: rgb(220, 246, 228);
+    --color-text-golden: gold;
+    --color-primary: #b33015; /* Rusty red for accents */
+    --color-secondary: #556b2f; /* Olive green */
+    --color-box-background: #8b4513; /* Dark earthy brown for footer */
+    --color-box-selected: #a0522d; /* Selected box color */
+    
+    --font-family: 'Cormorant Garamond', serif; /* Romantic font */
+    --font-size-base: 16px;
+    --border-radius: 5px;
+    --spacing-unit: 14px;
+}
+
+/* General Reset and Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: var(--spacing-unit);
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--color-primary);
+    padding: var(--spacing-unit) 0;
+    border: #333 2px solid;
+    border-radius: var(--border-radius);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: var(--spacing-unit);
+}
+
+nav ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: var(--spacing-unit) var(--spacing-unit);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    text-shadow: 2px 2px #333;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-golden);
+}
+
+/* Main Content */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-unit);
+    margin: var(--spacing-unit) 0;
+}
+
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+article {
+    background: var(--color-main);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px #333;
+    border: #333 2px solid;
+    border-radius: var(--border-radius);
+}
+
+img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-unit);
+}
+
+/* Footer with Interactive Boxes */
+footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-unit);
+    margin-top: var(--spacing-unit);
+    
+}
+
+.footer-box {
+    background-color: var(--color-primary);
+    color: #fff0ff;
+    padding: var(--spacing-unit);
+    text-align: center;
+    transition: background-color 0.3s;
+    height: 1em;
+    border: #333 2px solid;
+    border-radius: var(--border-radius);
+}
+
+.center-box {
+    background-color: var(--color-secondary); /* Olive green box */
+    cursor: pointer;
+    border: #333 2px solid;
+    border-radius: var(--border-radius);
+    
+}
+
+.footer-box.selected {
+    background-color: var(--color-primary); /* Turn green boxes to red when selected */
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Sections for The Past Page */
+section {
+    background: var(--color-main);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-unit);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: #333 2px solid;
+    border-radius: var(--border-radius);
+}
+
+@media (min-width: 768px) {
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-unit);
+    }
+}
+
+h2 {
+    margin-bottom: var(--spacing-unit);
+    color: var(--color-text);
+    text-align: center;
+    text-shadow: 2px 2px #333;
+}
+
+/* Future Wedding Page Styles */
+section p {
+    font-size: 1.1em;
+    color: var(--color-text-light);
+    font-weight: bold;
+    text-shadow: 2px 2px #333;
+}
+
+/* Password Alert and Hidden Page */
+#password-input {
+    display: none;
+    margin-top: var(--spacing-unit);
+    padding: var(--spacing-unit);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius);
+}
+
+/* Password Popup Styles */
+#password-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: var(--spacing-unit);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+    z-index: 1000;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submit-password {
+    margin-top: var(--spacing-unit);
+    padding: var(--spacing-unit);
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+#submit-password:hover {
+    background-color: var(--color-secondary);
+}
