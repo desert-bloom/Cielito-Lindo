@@ -35,13 +35,19 @@ function clearLocalStorageForCurrent() {
     console.log('Cleared boxesClicked state and password from localStorage.');
 }
 
+
 // Check if the hidden page link should be unlocked
 function checkUnlockCondition() {
     console.log('Checking unlock condition...');
     const allBoxesClicked = Object.values(boxesClicked).every(clicked => clicked);
+    const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Detect mobile devices
+
     console.log('All boxes clicked:', allBoxesClicked);
-    console.log('Orientation is landscape:', window.matchMedia("(orientation: landscape)").matches);
-    if (allBoxesClicked && window.matchMedia("(orientation: landscape)").matches) {
+    console.log('Orientation is landscape:', isLandscape);
+    console.log('Is mobile device:', isMobile);
+
+    if (allBoxesClicked && (isLandscape || isMobile)) {
         // Check if the password has been set in localStorage
         if (!localStorage.getItem('passwordVerified')) {
             console.log('Password not verified. Showing password input field in center box.');
@@ -52,6 +58,9 @@ function checkUnlockCondition() {
         }
     }
 }
+
+
+
 
 // Function to handle box click events
 function handleBoxClick(event) {
