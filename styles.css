@@ -1,11 +1,11 @@
 /* Define CSS Variables for Easy Updates */
 :root {
     --color-background: #3d4733; /* Sandy light color */
-    --color-main:#428d5a;
-    --color-text: whitesmoke; /* Warm brown for text */
+    --color-main:#3c704d;
+    --color-text: rgb(202, 232, 204); 
     --color-text-light: rgb(220, 246, 228);
-    --color-text-golden: gold;
-    --color-primary: #b33015; /* Rusty red for accents */
+    --color-text-golden: rgb(213, 199, 115);
+    --color-primary: #aa900f; /* Rusty red for accents */
     --color-secondary: #556b2f; /* Olive green */
     --color-box-background: #8b4513; /* Dark earthy brown for footer */
     --color-box-selected: #a0522d; /* Selected box color */
@@ -135,22 +135,30 @@ footer {
 
 /* Sections for The Past Page */
 section {
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
     background: var(--color-main);
     padding: var(--spacing-unit);
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-unit);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: #333 2px solid;
+}
+
+/* Images within sections */
+section img {
+    margin-top: var(--spacing-unit); /* Add spacing between the header and images */
+    width: 100%; /* Ensure images are responsive */
     border-radius: var(--border-radius);
 }
 
+/* For larger screens */
 @media (min-width: 768px) {
     section {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-unit);
+        grid-template-columns: 1fr; /* Make each section span the full width */
     }
 }
+
 
 h2 {
     margin-bottom: var(--spacing-unit);
