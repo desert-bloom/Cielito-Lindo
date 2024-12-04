@@ -2,7 +2,7 @@
 :root {
     --color-background: #3d4733; /* Sandy light color */
     --color-main:#3c704d;
-    --color-text: rgb(202, 232, 204); 
+    --color-text: rgb(246, 236, 90); 
     --color-text-light: rgb(220, 246, 228);
     --color-text-golden: rgb(213, 199, 115);
     --color-primary: #aa900f; /* Rusty red for accents */
@@ -142,7 +142,7 @@ section {
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-unit);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border: #333 2px solid;
+    border: #baa90b 3px solid;
 }
 
 /* Images within sections */
